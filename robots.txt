@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://injakanks.github.io/home-official-hth-com-cn/sitemap.xml

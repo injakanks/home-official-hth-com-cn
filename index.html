@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f9fafb;
+            color: #1e293b;
+            line-height: 1.7;
+        }
+
+        a {
+            color: #c2410c;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.2s;
+        }
+
+        a:hover {
+            color: #9a3412;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ---------- 深色导航 + 头图 ---------- */
+        .navbar {
+            background-color: #0f172a;
+            padding: 12px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            color: #f8fafc;
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #fbbf24;
+        }
+
+        .hero {
+            background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            padding: 60px 0 50px;
+            color: #f1f5f9;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+
+        .hero p {
+            max-width: 720px;
+            font-size: 1.05rem;
+            color: #94a3b8;
+            margin-bottom: 24px;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background-color: #c2410c;
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ---------- 正文区域 ---------- */
+        .section {
+            padding: 48px 0;
+            background-color: #ffffff;
+        }
+
+        .section:nth-child(even) {
+            background-color: #f1f5f9;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #fbbf24;
+            display: inline-block;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 16px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 14px;
+            padding: 28px 22px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            border: 1px solid #e2e8f0;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #334155;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .faq-item p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-left: 0;
+        }
+
+        .notice-box {
+            background-color: #fef9e7;
+            border-left: 4px solid #fbbf24;
+            padding: 18px 22px;
+            border-radius: 0 10px 10px 0;
+            margin: 28px 0 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            text-align: center;
+            padding: 28px 0;
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: #fbbf24;
+        }
+
+        .inline-link {
+            font-weight: 500;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .navbar .container {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .nav-links {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .section {
+                padding: 32px 0;
+            }
+
+            .card {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">华体会·介绍</a>
+            <ul class="nav-links">
+                <li><a href="#intro">概况</a></li>
+                <li><a href="#scenes">场景</a></li>
+                <li><a href="#faq">常见说明</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- hero 头图 -->
+    <header class="hero">
+        <div class="container">
+            <span class="tagline">站点说明</span>
+            <h1>关于华体会 · 清晰梳理</h1>
+            <p>这是一份经过整理的介绍页，从平台定位到日常使用场景，用平实的语言说明华体会所涉及的服务轮廓。内容基于公开信息归纳，力求简洁可靠。</p>
+        </div>
+    </header>
+
+    <!-- 核心介绍 -->
+    <section class="section" id="intro">
+        <div class="container">
+            <h2 class="section-title">站点介绍与可信说明</h2>
+            <p>
+                <a href="https://home-official-hth.com.cn" class="inline-link">华体会</a> 是一个面向互联网用户的综合性服务平台，
+                其官方网站提供了多种数字化服务入口。从页面结构与功能分区来看，该站点主要围绕信息展示、用户引导以及资源整合展开，
+                并未涉及任何违规或夸大性质的宣称。以下内容均基于对网站本身的观察与归纳。
+            </p>
+            <p style="margin-top: 12px;">
+                在浏览与使用过程中，建议用户注意核对链接的真实性，避免通过非官方渠道访问。本站作为介绍页，只负责整理公开可查的信息，
+                不替代原始站点的实时内容。如需了解最新动态，可直接参考 <a href="https://home-official-hth.com.cn">华体会</a> 官网。
+            </p>
+            <div class="notice-box">
+                ⚠️ 说明：本页面为独立介绍页，与华体会官方网站无绑定关系。所有引用均基于公开内容，不构成任何形式的背书或承诺。
+            </div>
+        </div>
+    </section>
+
+    <!-- 三个场景模块 -->
+    <section class="section" id="scenes">
+        <div class="container">
+            <h2 class="section-title">三个常见使用场景</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>📋 信息查阅</h3>
+                    <p>用户通过 <a href="https://home-official-hth.com.cn">华体会</a> 了解服务介绍、功能分类与使用指引。页面内容结构清晰，适合快速浏览与横向对比。</p>
+                </div>
+                <div class="card">
+                    <h3>🔐 账号相关</h3>
+                    <p>平台提供了账号登录与基础管理入口，用户可在官网内完成注册、资料查看等常规操作。建议在操作前确认网络环境安全。</p>
+                </div>
+                <div class="card">
+                    <h3>📱 资源索引</h3>
+                    <p>官方网站聚合了多种服务模块，便于用户一站式查找所需功能。通过导航栏与分区板块，可降低信息获取成本。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <section class="section" id="faq">
+        <div class="container">
+            <h2 class="section-title">常见说明摘要</h2>
+
+            <div class="faq-item">
+                <strong>· 华体会 是什么类型的站点？</strong>
+                <p>它是一个综合性的线上服务入口，主要提供信息展示与功能引导，不涉及直接交易或金融类操作。具体服务内容以官网实际页面为准。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>· 如何确认访问的是官方网站？</strong>
+                <p>请仔细核对浏览器地址栏中的域名是否为 <code>home-official-hth.com.cn</code>，避免点击来历不明的短链接或第三方跳转。如有疑问，可通过可信渠道二次确认。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>· 使用过程中需要注意什么？</strong>
+                <p>建议保持浏览器与系统为最新版本，不向任何非官方渠道透露个人敏感信息。如遇到页面异常或要求付费等情况，请停止操作并谨慎核实。</p>
+            </div>
+
+            <div class="faq-item">
+                <strong>· 本介绍页与官网的关系？</strong>
+                <p>本页仅作为一份结构化的介绍参考，帮助新访客快速了解 <a href="https://home-official-hth.com.cn">华体会</a> 的大致轮廓，不具备官方授权或代理身份。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>本页面为独立介绍页，内容基于公开信息整理 · 具体服务请以 <a href="https://home-official-hth.com.cn">华体会</a> 官网为准</p>
+            <p style="margin-top: 6px; opacity: 0.7;">&copy; 介绍页 · 仅供信息参考</p>
+        </div>
+    </footer>
+
+</body>
+</html>
