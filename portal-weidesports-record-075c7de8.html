@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>伟德体育 · 简明指南</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+    background: linear-gradient(145deg, #fce6b4 0%, #fad898 35%, #f5d181 75%, #edc065 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2.5rem 1.2rem 4rem;
+    color: #2d2418;
+  }
+
+  .page-wrapper {
+    max-width: 1100px;
+    width: 100%;
+  }
+
+  /* 主视觉卡片 (hero) */
+  .hero-card {
+    background: white;
+    border-radius: 48px 20px 48px 20px;
+    padding: 3.2rem 2.8rem;
+    box-shadow: 0 25px 40px -15px rgba(140, 90, 30, 0.35);
+    margin-bottom: 2.8rem;
+    transition: all 0.15s ease;
+    border: 1px solid rgba(255,245,210,0.7);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -20%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(255,215,140,0.25) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: #2b1e0f;
+    margin-bottom: 0.85rem;
+    position: relative;
+  }
+
+  .hero-sub {
+    font-size: 1.2rem;
+    color: #5e4a2f;
+    max-width: 680px;
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+    font-weight: 420;
+  }
+
+  .badge-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 0.6rem;
+    margin-top: 1.2rem;
+  }
+
+  .badge {
+    background: #f3e3c2;
+    padding: 0.4rem 1.1rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    color: #3d2d17;
+    font-weight: 500;
+  }
+
+  /* 卡片网格 */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.8rem;
+    margin-bottom: 2.8rem;
+  }
+
+  .info-card {
+    background: white;
+    border-radius: 28px;
+    padding: 1.8rem 1.6rem 2.2rem;
+    box-shadow: 0 10px 18px -6px rgba(120, 80, 30, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.2s;
+    border: 1px solid rgba(255, 245, 210, 0.6);
+  }
+
+  .info-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 28px -10px rgba(100, 65, 20, 0.22);
+  }
+
+  .card-icon {
+    font-size: 2.2rem;
+    display: inline-block;
+    margin-bottom: 0.3rem;
+  }
+
+  .info-card h3 {
+    font-size: 1.3rem;
+    font-weight: 620;
+    margin: 0.6rem 0 0.6rem;
+    color: #2d1f0d;
+  }
+
+  .info-card p {
+    color: #4d3a22;
+    font-size: 0.96rem;
+    line-height: 1.6;
+  }
+
+  .info-card .meta-tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    background: #f1e2c6;
+    padding: 0.2rem 1rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #3f2e15;
+  }
+
+  /* 适合人群 (inline) */
+  .audience-section {
+    background: white;
+    border-radius: 40px;
+    padding: 2rem 2.4rem;
+    margin-bottom: 2.8rem;
+    box-shadow: 0 8px 18px -6px rgba(100, 70, 20, 0.16);
+    border: 1px solid rgba(235, 210, 150, 0.5);
+  }
+
+  .audience-section h2 {
+    font-size: 1.4rem;
+    font-weight: 620;
+    margin-bottom: 0.7rem;
+    color: #2b1d0c;
+  }
+
+  .audience-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem 1.6rem;
+    margin: 0.8rem 0 0.6rem;
+  }
+
+  .audience-item {
+    background: #f5e7d0;
+    padding: 0.4rem 1.4rem 0.4rem 2rem;
+    border-radius: 60px;
+    font-size: 0.95rem;
+    color: #2f2211;
+    position: relative;
+    font-weight: 460;
+  }
+
+  .audience-item::before {
+    content: '▹';
+    position: absolute;
+    left: 0.7rem;
+    color: #ad7f42;
+    font-weight: bold;
+  }
+
+  .audience-note {
+    margin-top: 0.9rem;
+    font-size: 0.92rem;
+    color: #5b4530;
+    line-height: 1.5;
+    border-left: 4px solid #dcb575;
+    padding-left: 1rem;
+  }
+
+  /* 自然链接段落 (含链接) */
+  .link-block {
+    background: white;
+    border-radius: 32px;
+    padding: 2.2rem 2.6rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 12px 20px -10px rgba(110, 75, 25, 0.18);
+    border: 1px solid rgba(230, 200, 140, 0.5);
+  }
+
+  .link-block p {
+    color: #3e2e1b;
+    font-size: 1rem;
+    line-height: 1.7;
+    max-width: 780px;
+  }
+
+  .link-block strong {
+    color: #2b1d0b;
+  }
+
+  .link-block a {
+    color: #a15713;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid #dba45a;
+    padding-bottom: 1px;
+    transition: border-color 0.2s, background 0.2s;
+    border-radius: 0;
+  }
+
+  .link-block a:hover {
+    border-bottom-color: #a15713;
+    background: #fcefd9;
+    padding: 0.1rem 0.15rem;
+    margin: -0.1rem -0.15rem;
+    border-radius: 6px;
+  }
+
+  /* FAQ 摘要 / 提示 */
+  .tips-box {
+    background: white;
+    border-radius: 36px;
+    padding: 2rem 2.4rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 8px 14px -8px rgba(85, 60, 25, 0.15);
+    border: 1px solid #eddbbb;
+  }
+
+  .tips-box h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    color: #2d1f10;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #efe1cb;
+    padding: 0.6rem 0;
+  }
+
+  .faq-item:last-of-type {
+    border-bottom: none;
+  }
+
+  .faq-q {
+    font-weight: 560;
+    color: #2f200d;
+    margin-bottom: 0.2rem;
+    font-size: 1rem;
+  }
+
+  .faq-a {
+    color: #554230;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    padding-left: 0.2rem;
+  }
+
+  .faq-a a {
+    color: #9c601f;
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px dashed #cb9f61;
+  }
+
+  .faq-a a:hover {
+    border-bottom-style: solid;
+    color: #6d3f0e;
+  }
+
+  .note-footer {
+    margin-top: 2.2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #5b4a34;
+    opacity: 0.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+  }
+
+  hr {
+    border: none;
+    border-top: 2px solid #e7cfad;
+    margin: 0.6rem 0 1.2rem;
+    opacity: 0.5;
+  }
+
+  /* 响应式细节 */
+  @media (max-width: 640px) {
+    body { padding: 1.5rem 1rem 3rem; }
+    .hero-card { padding: 2rem 1.5rem; border-radius: 32px 14px 32px 14px; }
+    .hero-title { font-size: 2.1rem; }
+    .hero-sub { font-size: 1rem; }
+    .card-grid { gap: 1.2rem; }
+    .audience-section { padding: 1.6rem 1.4rem; }
+    .link-block { padding: 1.8rem 1.5rem; }
+    .tips-box { padding: 1.6rem 1.4rem; }
+    .badge-line .badge { font-size: 0.8rem; padding: 0.3rem 0.9rem; }
+    .audience-item { font-size: 0.85rem; padding: 0.3rem 1rem 0.3rem 1.7rem; }
+    .audience-item::before { left: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- hero / 主视觉卡片 -->
+<section class="hero-card">
+  <h1 class="hero-title">伟德体育 · 访问简明指南</h1>
+  <p class="hero-sub">
+    一个专注于体育资讯与赛事数据的平台。无论您是初次接触还是日常使用，了解基本信息与访问要点，能让体验更顺畅。本页整理了核心功能、适合人群以及实用提醒。
+  </p>
+  <div class="badge-line">
+    <span class="badge">⚽ 实时数据</span>
+    <span class="badge">🏀 赛事追踪</span>
+    <span class="badge">📋 界面简洁</span>
+    <span class="badge">🔐 基础指引</span>
+  </div>
+</section>
+
+<!-- 信息卡片：用途 / 特点场景 -->
+<div class="card-grid">
+  <div class="info-card">
+    <span class="card-icon">📊</span>
+    <h3>赛事信息聚合</h3>
+    <p>覆盖足球、篮球、网球等主流运动，提供比分、赛程、积分榜及统计摘要。信息更新节奏稳定，适合赛前参考与赛后回顾。</p>
+    <span class="meta-tag">实时更新</span>
+  </div>
+  <div class="info-card">
+    <span class="card-icon">🔍</span>
+    <h3>搜索与筛选</h3>
+    <p>通过关键词或联赛筛选，可以快速定位特定比赛或队伍。列表与卡片视图可切换，适应不同浏览习惯。</p>
+    <span class="meta-tag">灵活导航</span>
+  </div>
+  <div class="info-card">
+    <span class="card-icon">📱</span>
+    <h3>响应式适配</h3>
+    <p>移动端与桌面端均经过适配，核心功能保持一致。无需额外下载，通过浏览器即可获取主要内容。</p>
+    <span class="meta-tag">跨设备</span>
+  </div>
+</div>
+
+<!-- 适合人群 -->
+<section class="audience-section">
+  <h2>适合哪些人使用</h2>
+  <div class="audience-grid">
+    <span class="audience-item">体育爱好者</span>
+    <span class="audience-item">联赛关注者</span>
+    <span class="audience-item">数据查阅者</span>
+    <span class="audience-item">日常浏览用户</span>
+    <span class="audience-item">轻度赛事追踪</span>
+  </div>
+  <div class="audience-note">
+    不论您关注欧洲五大联赛、NBA 还是网球大满贯，都可以从中获取结构化的信息。平台设计偏向信息呈现，非流媒体直播站点，适合安静阅读与数据比对。
+  </div>
+</section>
+
+<!-- 自然链接段落 -->
+<section class="link-block">
+  <p>
+    <strong>访问提醒</strong> · 平台入口为 <a href="https://portal-weidesports.com">伟德体育</a>，建议使用主流浏览器（Chrome、Edge、Safari）获得最佳排版效果。页面加载速度受网络环境及当地访问条件影响，如遇延迟可尝试刷新或切换网络。部分数据来源为公开接口，更新频率约为 1~5 分钟，高峰期可能稍有延后。未注册用户也可浏览大部分内容，无需强制登录。
+  </p>
+  <hr>
+  <p style="font-size:0.95rem; margin-top:0.3rem;">
+    如果您是团队或开发者，也可参考站内公开信息进行二次分析，但请遵循合理使用原则。关于账户、订阅或高级功能，建议直接查阅站内帮助页面，或通过联系渠道获取最新说明。
+  </p>
+</section>
+
+<!-- FAQ 摘要 / 提示卡片 -->
+<section class="tips-box">
+  <h2>📌 常见注意与提示</h2>
+  <div class="faq-item">
+    <div class="faq-q">页面加载缓慢怎么办？</div>
+    <div class="faq-a">检查网络连接；尝试关闭 VPN 或切换节点；部分区域访问 <a href="https://portal-weidesports.com">伟德体育</a> 时可能需要调整 DNS 缓存。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">数据与实际比赛有出入？</div>
+    <div class="faq-a">数据由合作源提供，实时性因赛事级别而异。正式场合请以官方赛果为准。如发现异常，可向平台反馈修正。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">是否支持深色模式？</div>
+    <div class="faq-a">当前版本默认浅色界面，深色模式尚未正式推出。可通过系统或浏览器插件临时辅助调暗。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">是否需要注册？</div>
+    <div class="faq-a">浏览公开数据无需注册；部分个性化功能（收藏、提醒）可能要求创建免费账户。注册过程遵循一般邮箱验证流程。</div>
+  </div>
+</section>
+
+<div class="note-footer">
+  本页仅为信息说明与访问指引，不构成任何承诺或担保。请根据自身需求合理使用平台内容。
+</div>
+
+</div>
+</body>
+</html>
